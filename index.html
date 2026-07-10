@@ -32,9 +32,9 @@
             padding: 60px;
             position: relative;
             width: 100%;
-            max-width: 1100px; /* Diperketat sedikit agar layout desktop lebih padat */
+            max-width: 1100px; /* Rapat untuk desktop agar fokus */
             min-height: 80vh;
-            margin: 0 auto; /* Memastikan slide selalu berada di tengah layar desktop */
+            margin: 0 auto; /* Tengah-tengah layar desktop */
             border: 1px solid #1e293b;
             overflow: hidden;
         }
@@ -54,9 +54,22 @@
 
         .slide-container > * { position: relative; z-index: 1; }
 
+        /* KUNCI: STYLING FOTO PROFIL LIKE GITHUB */
+        .profile-photo {
+            width: 160px; /* Contained size */
+            height: 160px;
+            border-radius: 50%; /* Melingkar seperti GitHub profil */
+            object-fit: cover; /* Foto tetap proporsional */
+            border: 4px solid #1e293b; /* Border untuk minimalist tech */
+            margin: 0 auto 30px; /* Tengah dan ada jarak bawah */
+            box-shadow: 0 0 25px rgba(0, 255, 170, 0.15); /* Pancaran emerald lembut */
+            display: block; /* Memastikan marjin otomatis berfungsi */
+            animation: antigravity 4s ease-in-out infinite; /* Melayang halus seperti antigravitasi */
+        }
+
         /* TYPOGRAPHY */
         h1, h2, h3 { color: #f8fafc; font-family: 'Outfit', sans-serif; }
-        h1 { font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -2px; color: #00FFAA; margin-bottom: 20px; }
+        h1 { font-size: clamp(3rem, 6vw, 4.5rem); letter-spacing: -2px; color: #00FFAA; margin-bottom: 20px; }
         h2 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 600; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; border-left: 6px solid #00FFAA; padding-left: 20px; }
         h3 { font-size: 1.8rem; margin-bottom: 15px; color: #00FFAA; }
         p, li { font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
@@ -71,7 +84,8 @@
         @media (max-width: 900px) {
             .two-column { grid-template-columns: 1fr; gap: 30px; }
             .slide-container { min-height: auto; padding: 40px 20px; }
-            .image-wrapper { order: -1 !important; } /* Di HP gambar selalu di atas teks agar rapi */
+            .image-wrapper { order: -1 !important; } /* Di HP gambar selalu di atas teks */
+            .profile-photo { width: 140px; height: 140px; } /* Ukuran HP disesuaikan */
         }
 
         /* CARDS & TILES */
@@ -125,7 +139,14 @@
         .timeline-item { position: relative; padding-left: 60px; margin-bottom: 40px; }
         .timeline-dot { position: absolute; left: 11px; top: 5px; width: 20px; height: 20px; background: #00FFAA; border-radius: 50%; box-shadow: 0 0 15px rgba(0, 255, 170, 0.6); }
 
-        /* FOOTER LINGKS VIA ICONS */
+        /* KUNCI SIHIR ANTI-GRAVITY */
+        @keyframes antigravity {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* FOOTER LINKS */
         .footer-links {
             display: flex;
             flex-wrap: wrap;
@@ -153,10 +174,12 @@
 <body>
 
     <div class="slide-container center-layout">
+        <img src="image_0.png" alt="My Profile Photo" class="profile-photo">
+        
         <span class="eyebrow">My Evolution</span>
         <h1>Engineering Resilience</h1>
-        <p class="subtitle">Scaling from Purwokerto to Around the World. A masterplan for an elite AI Engineer Portfolio that commands attention and premium rates.</p>
-        <a href="#projects" class="btn-primary" style="margin-top: 40px;">View Architecture</a>
+        <p class="subtitle">Scaling from Purwokerto to New York. A masterplan for an elite AI Engineer Portfolio that commands attention and premium rates.</p>
+        <a href="#projects" class="btn-primary" style="margin-top: 20px;">View Architecture</a>
     </div>
 
     <div class="slide-container">
@@ -286,7 +309,7 @@
     </div>
 
     <div class="slide-container center-layout" style="text-align: center; border-color: #00FFAA; background: radial-gradient(circle at center, rgba(0, 255, 170, 0.1) 0%, #0e1117 60%);">
-        <h1 style="font-size: clamp(4rem, 8vw, 7rem);">LET'S BUILD.</h1>
+        <h1 style="font-size: clamp(4rem, 8vw, 6.5rem);">LET'S BUILD.</h1>
         <p class="subtitle" style="margin-bottom: 40px;">Open for Elite Collaborations & Remote Engineering Roles.</p>
         
         <div class="footer-links" style="margin-bottom: 30px;">
