@@ -3,281 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Evolution | AI & Web Developer</title>
+    <title>My Evolution - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700&family=Outfit:wght@300;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* CSS: Untuk Desain, Tata Letak, dan Animasi */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+        /* THE SETUP */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: #080a0c; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+            gap: 40px; 
+            padding: 40px 20px; 
+            font-family: 'Urbanist', sans-serif;
+            color: #94a3b8;
         }
 
-        body {
-            background-color: #0E1117;
-            color: #FAFAFA;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Hero Section */
-        header {
-            text-align: center;
-            padding: 80px 0 50px;
-            background: linear-gradient(180deg, #1A1C23 0%, #0E1117 100%);
-            border-bottom: 1px solid #333;
-            border-radius: 0 0 30px 30px;
-            margin-bottom: 50px;
-        }
-
-        .badge {
-            background-color: #00FFAA;
-            color: #000;
-            padding: 5px 15px;
+        .slide-container {
+            background-color: #0e1117;
             border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            min-height: 80vh;
+            border: 1px solid #1e293b;
+            overflow: hidden;
+        }
+
+        /* GLOW EFFECT BACKGROUND */
+        .slide-container::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 255, 170, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            border-radius: 50%;
+        }
+
+        .slide-container > * { position: relative; z-index: 1; }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 { color: #f8fafc; font-family: 'Outfit', sans-serif; }
+        h1 { font-size: clamp(3rem, 6vw, 5.5rem); letter-spacing: -2px; color: #00FFAA; margin-bottom: 20px; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; border-left: 6px solid #00FFAA; padding-left: 20px; }
+        h3 { font-size: 1.8rem; margin-bottom: 15px; color: #00FFAA; }
+        p, li { font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
+        
+        .subtitle { font-size: 1.5rem; font-weight: 300; max-width: 800px; text-align: center; margin: 0 auto; }
+        .eyebrow { text-transform: uppercase; letter-spacing: 5px; color: #94a3b8; font-weight: 600; margin-bottom: 15px; display: block; }
+
+        /* LAYOUTS */
+        .center-layout { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        
+        @media (max-width: 900px) {
+            .two-column { grid-template-columns: 1fr; }
+            .slide-container { min-height: auto; padding: 40px 20px; }
+        }
+
+        /* CARDS & TILES */
+        .tiled-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; width: 100%; margin-top: 30px; }
+        .tile { 
+            background: rgba(30, 41, 59, 0.4); 
+            border: 1px solid #1e293b; 
+            border-radius: 20px; 
+            padding: 40px; 
+            transition: 0.3s;
+        }
+        .tile:hover { transform: translateY(-10px); border-color: #00FFAA; }
+        .tile .icon { font-size: 40px; color: #00FFAA; margin-bottom: 25px; }
+
+        /* IMAGES */
+        .image-wrapper { border-radius: 16px; overflow: hidden; border: 1px solid #1e293b; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 100%; height: 350px; }
+        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .image-wrapper:hover img { transform: scale(1.05); }
+
+        /* BUTTONS */
+        .btn-primary {
             display: inline-block;
-            margin-bottom: 20px;
-            animation: antigravity 4s ease-in-out infinite;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-            background: linear-gradient(90deg, #FFFFFF, #a3a3a3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Animasi Efek Mengetik JS */
-        .typewriter-text {
-            color: #00FFAA;
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 20px;
-            min-height: 35px;
+            background-color: #00FFAA;
+            color: #080a0c;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: 0.3s;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
-
-        .hero-desc {
-            max-width: 600px;
-            margin: 0 auto;
-            color: #CCC;
-            font-size: 1.05rem;
+        .btn-primary:hover {
+            background-color: #f8fafc;
+            box-shadow: 0 0 20px rgba(0, 255, 170, 0.4);
+            transform: translateY(-3px);
         }
 
-        /* Section Titles */
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #00FFAA;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
+        /* CHARTS / SKILLS */
+        .bar { display: flex; align-items: center; margin-bottom: 25px; }
+        .bar .label { flex: 0 0 200px; font-weight: 600; color: #f8fafc; }
+        .bar .bar-inner { flex-grow: 1; background: #1e293b; height: 30px; border-radius: 20px; overflow: hidden; }
+        .bar .bar-fill { height: 100%; background: linear-gradient(90deg, #059669, #00FFAA); display: flex; align-items: center; justify-content: flex-end; padding-right: 15px; color: #000; font-weight: 800; }
 
-        /* Skills */
-        .skills {
-            margin-bottom: 50px;
-        }
+        /* TIMELINE */
+        .timeline { position: relative; max-width: 800px; margin: 40px auto 0; }
+        .timeline::before { content: ''; position: absolute; width: 2px; background: #1e293b; top: 0; bottom: 0; left: 20px; }
+        .timeline-item { position: relative; padding-left: 60px; margin-bottom: 40px; }
+        .timeline-dot { position: absolute; left: 11px; top: 5px; width: 20px; height: 20px; background: #00FFAA; border-radius: 50%; box-shadow: 0 0 15px rgba(0, 255, 170, 0.6); }
 
-        .skill-pill {
-            background-color: #2D3139;
-            padding: 8px 16px;
-            border-radius: 15px;
-            margin: 5px;
-            display: inline-block;
-            font-size: 14px;
-            border: 1px solid #444;
-            transition: 0.3s;
-        }
-
-        .skill-pill:hover {
-            background-color: #00FFAA;
-            color: #000;
-            cursor: pointer;
-            transform: scale(1.05);
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 70px;
-            padding-top: 10px;
-        }
-
-        /* Efek Anti-Gravity pada Kotak Proyek */
-        .project-card {
-            background-color: #1A1C23;
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid #333;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            animation: antigravity 5s ease-in-out infinite;
-        }
-
-        /* Jeda waktu melayang biar estetik bergantian */
-        .projects-grid .project-card:nth-child(1) { animation-duration: 5s; animation-delay: 0s; }
-        .projects-grid .project-card:nth-child(2) { animation-duration: 5.5s; animation-delay: 0.5s; }
-        .projects-grid .project-card:nth-child(3) { animation-duration: 6s; animation-delay: 1s; }
-
-        .project-card:hover {
-            border-color: #00FFAA;
-            box-shadow: 0 10px 25px rgba(0, 255, 170, 0.15);
-            animation-play-state: paused; /* Berhenti melayang pas disentuh mouse */
-        }
-
-        .project-card h3 {
-            color: #00FFAA;
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-        }
-
-        .project-card p {
-            color: #AAA;
-            font-size: 14px;
-            margin-bottom: 25px;
-            min-height: 60px;
-        }
-
-        .project-link {
-            text-decoration: none;
-            color: #0E1117;
-            background-color: #FAFAFA;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-        }
-
-        .project-link:hover {
-            background-color: #00FFAA;
-            transform: translateY(-2px);
-        }
-
-        /* KUNCI SIHIR ANTI-GRAVITY */
-        @keyframes antigravity {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0px); }
-        }
-
-        /* Footer / Contact */
-        footer {
-            margin-bottom: 60px;
-            border-top: 1px solid #333;
-            padding-top: 40px;
-        }
-        
-        footer p, footer a {
-            color: #CCC;
-            text-decoration: none;
-            line-height: 2.2;
-            font-size: 1.05rem;
-        }
-        footer a:hover {
-            color: #00FFAA;
-        }
+        /* FOOTER */
+        .footer-links a { color: #00FFAA; text-decoration: none; margin: 0 15px; font-size: 1.2rem; transition: 0.3s; }
+        .footer-links a:hover { color: #fff; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="badge">🟢 Available for Remote Work & Freelance</div>
-        <h1>My Evolution</h1>
-        <div class="typewriter-text" id="typewriter"></div>
-        <p class="hero-desc">Architecting digital intelligence. Turning high-level complex algorithms into robust, elegant, and interactive production-ready applications.</p>
-    </header>
-
-    <div class="container">
-        
-        <section class="skills">
-            <h2>⚡ Tech Stack & Expertise</h2>
-            <div>
-                <span class="skill-pill">Python</span>
-                <span class="skill-pill">HTML5 / CSS3 / JavaScript (ES6)</span>
-                <span class="skill-pill">Streamlit Architecture</span>
-                <span class="skill-pill">Generative AI (Gemini Core API)</span>
-                <span class="skill-pill">Advanced Prompt Engineering</span>
-                <span class="skill-pill">Google Search Grounding</span>
-                <span class="skill-pill">Data Analytics (Pandas)</span>
-            </div>
-        </section>
-
-        <section class="projects">
-            <h2>💻 Deployed AI Artifacts</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card">
-                    <h3>🤖 Efti-Bot</h3>
-                    <p>Flagship multi-modal AI assistant featuring contextual conversation memory, advanced computer vision, and high-fidelity text-to-image synthesis powered by Imagen 3.</p>
-                    <a href="https://web-ai-eftiara.streamlit.app" target="_blank" class="project-link">👉 Launch Application</a>
-                </div>
-
-                <div class="project-card">
-                    <h3>📊 AI Business Analyzer</h3>
-                    <p>Enterprise data intelligence tool designed to parse customer reviews, automatically compute core sentiment distributions, and synthesize data-driven executive recommendations.</p>
-                    <a href="https://review-analyzer-eftiara.streamlit.app/" target="_blank" class="project-link">👉 Launch Application</a>
-                </div>
-
-                <div class="project-card">
-                    <h3>🎵 Global Lyrics Finder</h3>
-                    <p>High-precision global music database retrieval application integrated with real-time Google Search Grounding to eliminate AI hallucination metrics completely.</p>
-                    <a href="https://lirik-ai-eftiara.streamlit.app" target="_blank" class="project-link">👉 Launch Application</a>
-                </div>
-
-            </div>
-        </section>
-
-        <footer>
-            <h2>📬 Connect & Collaborate</h2>
-            <p style="margin-bottom: 15px; color: #94a3b8;">Currently open for full-time global engineering positions, technical contract roles, and remote AI pipelines consulting.</p>
-            <p>🐙 <strong>GitHub Profile:</strong> <a href="https://github.com/tieftiara-crypto" target="_blank">github.com/tieftiara-crypto</a></p>
-            <p>💼 <strong>LinkedIn Network:</strong> <a href="#">Connect visually with me</a></p>
-            <p>✉️ <strong>Secure Email Inbox:</strong> tieftiara@email.com</p>
-            <p>📍 <strong>Base Location:</strong> Purwokerto, Indonesia (GMT+7) / Available for USA Remote</p>
-        </footer>
-
+    <div class="slide-container center-layout">
+        <span class="eyebrow">My Evolution</span>
+        <h1>Engineering Resilience</h1>
+        <p class="subtitle">Scaling from Purwokerto to New York. A masterplan for an elite AI Engineer Portfolio that commands attention and premium rates.</p>
+        <a href="#projects" class="btn-primary" style="margin-top: 40px;">View Architecture</a>
     </div>
 
-    <script>
-        // JavaScript: Efek Mengetik Otomatis
-        const texts = ["AI Architecture", "Full-Stack AI Engineering", "Front-End System Design", "Data-Driven Engineering"];
-        let count = 0;
-        let index = 0;
-        let currentText = '';
-        let letter = '';
+    <div class="slide-container">
+        <h2>Core Brand Pillars</h2>
+        <div class="tiled-content">
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-shield-heart"></i></div>
+                <h3>Resilience</h3>
+                <p>Translating the strength of a single mother of four into unbreakable code and robust system architectures.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-microchip"></i></div>
+                <h3>Precision</h3>
+                <p>Leveraging cutting-edge AI (Gemini, Imagen 3) to solve complex business problems with 99% accuracy.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-globe"></i></div>
+                <h3>Ambition</h3>
+                <p>Strategic alignment with the US market standards: Clean code, detailed metrics, and elite UI/UX.</p>
+            </div>
+        </div>
+    </div>
 
-        (function type() {
-            if (count === texts.length) {
-                count = 0;
-            }
-            currentText = texts[count];
-            letter = currentText.slice(0, ++index);
-            
-            document.getElementById('typewriter').textContent = letter + "|";
-            
-            if (letter.length === currentText.length) {
-                count++;
-                index = 0;
-                setTimeout(type, 2200); // Jeda tiap kata
-            } else {
-                setTimeout(type, 80); // Kecepatan ngetik
-            }
-        }());
-    </script>
+    <div class="slide-container" id="projects">
+        <h2 style="border-left-color: #f43f5e;">Featured: Efti-Bot</h2>
+        <div class="two-column">
+            <div>
+                <h3 style="color: #f43f5e;">The Ultimate AI Assistant</h3>
+                <p>A flagship project integrating Conversational Memory and AI Vision. This application demonstrates high-level API mastery and user-centric design.</p>
+                <ul style="padding-left: 20px; margin-bottom: 30px;">
+                    <li>Multi-modal capabilities (Text, Image, Vision)</li>
+                    <li>Integrated Imagen 3 for prompt-based generation</li>
+                    <li>Deployed globally via Streamlit Cloud</li>
+                </ul>
+                <a href="https://web-ai-eftiara.streamlit.app" target="_blank" class="btn-primary" style="background-color: #f43f5e; color: white;">Launch Application</a>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop" alt="AI Abstract">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <h2 style="border-left-color: #3b82f6;">Business Analyzer</h2>
+        <div class="two-column">
+            <div class="image-wrapper" style="order: -1;">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Data Dashboard">
+            </div>
+            <div>
+                <h3 style="color: #3b82f6;">Data Driven Insight</h3>
+                <p>A smart enterprise tool for sentiment extraction. It turns raw customer feedback into strategic executive recommendations automatically.</p>
+                <ul style="padding-left: 20px; margin-bottom: 30px;">
+                    <li>Processes raw CSV/Excel datasets</li>
+                    <li>Automated sentiment ratio formulation</li>
+                    <li>Strategic AI business consulting output</li>
+                </ul>
+                <a href="https://review-analyzer-eftiara.streamlit.app/" target="_blank" class="btn-primary" style="background-color: #3b82f6; color: white;">Launch Application</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <h2 style="border-left-color: #10b981;">Global Lyrics Finder</h2>
+        <div class="two-column">
+            <div>
+                <h3 style="color: #10b981;">Search Grounding Precision</h3>
+                <p>High-precision global music database retrieval application integrated with real-time Google Search Grounding to eliminate AI hallucination entirely.</p>
+                <ul style="padding-left: 20px; margin-bottom: 30px;">
+                    <li>Zero-hallucination data fetching</li>
+                    <li>Global artist and genre recognition</li>
+                    <li>Optimized API token usage</li>
+                </ul>
+                <a href="https://lirik-ai-eftiara.streamlit.app" target="_blank" class="btn-primary" style="background-color: #10b981; color: #000;">Launch Application</a>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=1000&auto=format&fit=crop" alt="Music and Sound">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <h2>Technical Mastery Index</h2>
+        <p style="margin-bottom: 40px; font-size: 1.2rem;">My weapons of choice for building scalable solutions.</p>
+        
+        <div class="bar">
+            <div class="label">Python & AI Logic</div>
+            <div class="bar-inner"><div class="bar-fill" style="width: 95%;">95%</div></div>
+        </div>
+        <div class="bar">
+            <div class="label">Prompt Engineering</div>
+            <div class="bar-inner"><div class="bar-fill" style="width: 98%;">98%</div></div>
+        </div>
+        <div class="bar">
+            <div class="label">Front-End (JS/CSS)</div>
+            <div class="bar-inner"><div class="bar-fill" style="width: 85%;">85%</div></div>
+        </div>
+        <div class="bar">
+            <div class="label">API Architecting</div>
+            <div class="bar-inner"><div class="bar-fill" style="width: 90%;">90%</div></div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <h2>The Career Pivot</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3>Phase 1: Foundations</h3>
+                <p>Mastering Python, Data logic, and surviving the learning curve in Purwokerto.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3>Phase 2: Deployment</h3>
+                <p>Launching 3 core AI applications (Efti-Bot, Business Analyzer, Lyrics Finder) utilizing the Google Gemini framework.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3>Phase 3: Front-End Architecture</h3>
+                <p>Transitioning from basic scripts to elite HTML/CSS/JS engineering for premium user experiences.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3>Phase 4: US Market Entry</h3>
+                <p>Building global readiness, remote working capabilities, and preparing for the ultimate pivot.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container center-layout" style="text-align: center; border-color: #00FFAA; background: radial-gradient(circle at center, rgba(0, 255, 170, 0.1) 0%, #0e1117 60%);">
+        <h1 style="font-size: clamp(4rem, 8vw, 7rem);">LET'S BUILD.</h1>
+        <p class="subtitle" style="margin-bottom: 40px;">Open for Elite Collaborations & Remote Engineering Roles.</p>
+        
+        <div class="footer-links" style="margin-bottom: 30px;">
+            <a href="https://github.com/tieftiara-crypto" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="mailto:tieftiara@email.com"><i class="fa-solid fa-envelope"></i> tieftiara@email.com</a>
+        </div>
+        
+        <p style="color: #00FFAA; font-weight: 700; font-size: 1.2rem;"><i class="fa-solid fa-location-dot"></i> Purwokerto, Indonesia (Available Remote US)</p>
+    </div>
+
 </body>
 </html>
