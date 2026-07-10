@@ -32,8 +32,9 @@
             padding: 60px;
             position: relative;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1100px; /* Diperketat sedikit agar layout desktop lebih padat */
             min-height: 80vh;
+            margin: 0 auto; /* Memastikan slide selalu berada di tengah layar desktop */
             border: 1px solid #1e293b;
             overflow: hidden;
         }
@@ -55,21 +56,22 @@
 
         /* TYPOGRAPHY */
         h1, h2, h3 { color: #f8fafc; font-family: 'Outfit', sans-serif; }
-        h1 { font-size: clamp(3rem, 6vw, 5.5rem); letter-spacing: -2px; color: #00FFAA; margin-bottom: 20px; }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; border-left: 6px solid #00FFAA; padding-left: 20px; }
+        h1 { font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -2px; color: #00FFAA; margin-bottom: 20px; }
+        h2 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 600; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; border-left: 6px solid #00FFAA; padding-left: 20px; }
         h3 { font-size: 1.8rem; margin-bottom: 15px; color: #00FFAA; }
         p, li { font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
         
-        .subtitle { font-size: 1.5rem; font-weight: 300; max-width: 800px; text-align: center; margin: 0 auto; }
+        .subtitle { font-size: 1.4rem; font-weight: 300; max-width: 800px; text-align: center; margin: 0 auto; }
         .eyebrow { text-transform: uppercase; letter-spacing: 5px; color: #94a3b8; font-weight: 600; margin-bottom: 15px; display: block; }
 
         /* LAYOUTS */
         .center-layout { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
-        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         
         @media (max-width: 900px) {
-            .two-column { grid-template-columns: 1fr; }
+            .two-column { grid-template-columns: 1fr; gap: 30px; }
             .slide-container { min-height: auto; padding: 40px 20px; }
+            .image-wrapper { order: -1 !important; } /* Di HP gambar selalu di atas teks agar rapi */
         }
 
         /* CARDS & TILES */
@@ -123,9 +125,29 @@
         .timeline-item { position: relative; padding-left: 60px; margin-bottom: 40px; }
         .timeline-dot { position: absolute; left: 11px; top: 5px; width: 20px; height: 20px; background: #00FFAA; border-radius: 50%; box-shadow: 0 0 15px rgba(0, 255, 170, 0.6); }
 
-        /* FOOTER */
-        .footer-links a { color: #00FFAA; text-decoration: none; margin: 0 15px; font-size: 1.2rem; transition: 0.3s; }
-        .footer-links a:hover { color: #fff; }
+        /* FOOTER LINGKS VIA ICONS */
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .footer-links a { 
+            color: #94a3b8; 
+            text-decoration: none; 
+            font-size: 1.1rem; 
+            transition: 0.3s; 
+            padding: 10px 20px; 
+            border: 1px solid #1e293b; 
+            border-radius: 25px;
+            background: rgba(30, 41, 59, 0.2);
+        }
+        .footer-links a:hover { 
+            color: #00FFAA; 
+            border-color: #00FFAA;
+            background: rgba(0, 255, 170, 0.05);
+        }
+        .footer-links a i { margin-right: 8px; }
     </style>
 </head>
 <body>
@@ -180,7 +202,7 @@
     <div class="slide-container">
         <h2 style="border-left-color: #3b82f6;">Business Analyzer</h2>
         <div class="two-column">
-            <div class="image-wrapper" style="order: -1;">
+            <div class="image-wrapper">
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Data Dashboard">
             </div>
             <div>
@@ -270,7 +292,8 @@
         <div class="footer-links" style="margin-bottom: 30px;">
             <a href="https://github.com/tieftiara-crypto" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
             <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-            <a href="mailto:tieftiara@gmail.com"><i class="fa-solid fa-envelope"></i> tieftiara@email.com</a>
+            <a href="https://wa.me/6287843034445" target="_blank" style="color: #25D366;"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="mailto:tieftiara@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
         </div>
         
         <p style="color: #00FFAA; font-weight: 700; font-size: 1.2rem;"><i class="fa-solid fa-location-dot"></i> Purwokerto, Indonesia (Available Remote US)</p>
