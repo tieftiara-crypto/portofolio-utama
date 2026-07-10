@@ -32,9 +32,9 @@
             padding: 60px;
             position: relative;
             width: 100%;
-            max-width: 1100px; /* Rapat untuk desktop agar fokus */
+            max-width: 1100px;
             min-height: 80vh;
-            margin: 0 auto; /* Tengah-tengah layar desktop */
+            margin: 0 auto;
             border: 1px solid #1e293b;
             overflow: hidden;
         }
@@ -54,17 +54,17 @@
 
         .slide-container > * { position: relative; z-index: 1; }
 
-        /* KUNCI: STYLING FOTO PROFIL LIKE GITHUB */
+        /* FOTO PROFIL MINIMALIS ELEGAN */
         .profile-photo {
-            width: 160px; /* Contained size */
+            width: 160px;
             height: 160px;
-            border-radius: 50%; /* Melingkar seperti GitHub profil */
-            object-fit: cover; /* Foto tetap proporsional */
-            border: 4px solid #1e293b; /* Border untuk minimalist tech */
-            margin: 0 auto 30px; /* Tengah dan ada jarak bawah */
-            box-shadow: 0 0 25px rgba(0, 255, 170, 0.15); /* Pancaran emerald lembut */
-            display: block; /* Memastikan marjin otomatis berfungsi */
-            animation: antigravity 4s ease-in-out infinite; /* Melayang halus seperti antigravitasi */
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #1e293b;
+            margin: 0 auto 30px;
+            box-shadow: 0 0 25px rgba(0, 255, 170, 0.2);
+            display: block;
+            animation: antigravity 4s ease-in-out infinite;
         }
 
         /* TYPOGRAPHY */
@@ -84,8 +84,8 @@
         @media (max-width: 900px) {
             .two-column { grid-template-columns: 1fr; gap: 30px; }
             .slide-container { min-height: auto; padding: 40px 20px; }
-            .image-wrapper { order: -1 !important; } /* Di HP gambar selalu di atas teks */
-            .profile-photo { width: 140px; height: 140px; } /* Ukuran HP disesuaikan */
+            .image-wrapper { order: -1 !important; }
+            .profile-photo { width: 140px; height: 140px; }
         }
 
         /* CARDS & TILES */
@@ -174,7 +174,7 @@
 <body>
 
     <div class="slide-container center-layout">
-        <img src="image_0.png" alt="My Profile Photo" class="profile-photo">
+        <img src="foto.jpeg" alt="My Profile Photo" class="profile-photo">
         
         <span class="eyebrow">My Evolution</span>
         <h1>Engineering Resilience</h1>
