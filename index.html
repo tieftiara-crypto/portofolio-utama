@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eftiara | AI & Web Developer</title>
+    <title>My Evolution | AI & Web Developer</title>
     <style>
         /* CSS: Untuk Desain, Tata Letak, dan Animasi */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
@@ -46,13 +46,16 @@
             font-size: 14px;
             display: inline-block;
             margin-bottom: 20px;
-            /* Efek anti-gravity lembut untuk badge atas */
             animation: antigravity 4s ease-in-out infinite;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 10px;
+            letter-spacing: -1px;
+            background: linear-gradient(90deg, #FFFFFF, #a3a3a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* Animasi Efek Mengetik JS */
@@ -62,12 +65,14 @@
             font-weight: 400;
             margin-bottom: 20px;
             min-height: 35px;
+            letter-spacing: 1px;
         }
 
         .hero-desc {
             max-width: 600px;
             margin: 0 auto;
             color: #CCC;
+            font-size: 1.05rem;
         }
 
         /* Section Titles */
@@ -99,6 +104,7 @@
             background-color: #00FFAA;
             color: #000;
             cursor: pointer;
+            transform: scale(1.05);
         }
 
         /* Projects Grid */
@@ -110,89 +116,77 @@
             padding-top: 10px;
         }
 
-        /* Efek Anti-Gravity Utama pada Kotak Proyek */
+        /* Efek Anti-Gravity pada Kotak Proyek */
         .project-card {
             background-color: #1A1C23;
             padding: 25px;
             border-radius: 15px;
             border: 1px solid #333;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            
-            /* Pasang animasinya di sini */
             animation: antigravity 5s ease-in-out infinite;
         }
 
-        /* Variasi Durasi & Jeda biar melayangnya estetik bergantian (Asynchronous) */
-        .projects-grid .project-card:nth-child(1) {
-            animation-duration: 5s;
-            animation-delay: 0s;
-        }
-        .projects-grid .project-card:nth-child(2) {
-            animation-duration: 5.5s;
-            animation-delay: 0.5s;
-        }
-        .projects-grid .project-card:nth-child(3) {
-            animation-duration: 6s;
-            animation-delay: 1s;
-        }
+        /* Jeda waktu melayang biar estetik bergantian */
+        .projects-grid .project-card:nth-child(1) { animation-duration: 5s; animation-delay: 0s; }
+        .projects-grid .project-card:nth-child(2) { animation-duration: 5.5s; animation-delay: 0.5s; }
+        .projects-grid .project-card:nth-child(3) { animation-duration: 6s; animation-delay: 1s; }
 
-        /* Saat disentuh mouse, animasi melambat dan menyala hijau */
         .project-card:hover {
             border-color: #00FFAA;
             box-shadow: 0 10px 25px rgba(0, 255, 170, 0.15);
-            animation-play-state: paused; /* Berhenti melayang pas di-hover agar user nyaman nge-klik */
+            animation-play-state: paused; /* Berhenti melayang pas disentuh mouse */
         }
 
         .project-card h3 {
             color: #00FFAA;
             margin-bottom: 10px;
+            font-size: 1.4rem;
         }
 
         .project-card p {
             color: #AAA;
             font-size: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            min-height: 60px;
         }
 
         .project-link {
             text-decoration: none;
             color: #0E1117;
             background-color: #FAFAFA;
-            padding: 8px 15px;
-            border-radius: 5px;
+            padding: 10px 20px;
+            border-radius: 8px;
             font-weight: bold;
             transition: 0.3s;
             display: inline-block;
+            width: 100%;
+            text-align: center;
         }
 
         .project-link:hover {
             background-color: #00FFAA;
+            transform: translateY(-2px);
         }
 
-        /* KUNCI SIHIR ANTI-GRAVITY (CSS Keyframes) */
+        /* KUNCI SIHIR ANTI-GRAVITY */
         @keyframes antigravity {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-12px); /* Melayang naik setinggi 12 pixel */
-            }
-            100% {
-                transform: translateY(0px);
-            }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
         }
 
         /* Footer / Contact */
         footer {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             border-top: 1px solid #333;
-            padding-top: 30px;
+            padding-top: 40px;
         }
         
         footer p, footer a {
             color: #CCC;
             text-decoration: none;
-            line-height: 2;
+            line-height: 2.2;
+            font-size: 1.05rem;
         }
         footer a:hover {
             color: #00FFAA;
@@ -202,10 +196,10 @@
 <body>
 
     <header>
-        <div class="badge">🟢 Available for Work & Freelance</div>
-        <h1>Hi, I'm Eftiara 👋</h1>
+        <div class="badge">🟢 Available for Remote Work & Freelance</div>
+        <h1>My Evolution</h1>
         <div class="typewriter-text" id="typewriter"></div>
-        <p class="hero-desc">I build intelligent, data-driven web applications. From Conversational AI to Business Analytics, I turn complex problems into elegant digital solutions.</p>
+        <p class="hero-desc">Architecting digital intelligence. Turning high-level complex algorithms into robust, elegant, and interactive production-ready applications.</p>
     </header>
 
     <div class="container">
@@ -214,53 +208,54 @@
             <h2>⚡ Tech Stack & Expertise</h2>
             <div>
                 <span class="skill-pill">Python</span>
-                <span class="skill-pill">HTML / CSS / JS</span>
-                <span class="skill-pill">Streamlit</span>
-                <span class="skill-pill">Generative AI (Gemini)</span>
-                <span class="skill-pill">Data Analysis (Pandas)</span>
-                <span class="skill-pill">Prompt Engineering</span>
+                <span class="skill-pill">HTML5 / CSS3 / JavaScript (ES6)</span>
+                <span class="skill-pill">Streamlit Architecture</span>
+                <span class="skill-pill">Generative AI (Gemini Core API)</span>
+                <span class="skill-pill">Advanced Prompt Engineering</span>
+                <span class="skill-pill">Google Search Grounding</span>
+                <span class="skill-pill">Data Analytics (Pandas)</span>
             </div>
         </section>
 
         <section class="projects">
-            <h2>💻 Featured Projects</h2>
+            <h2>💻 Deployed AI Artifacts</h2>
             <div class="projects-grid">
                 
                 <div class="project-card">
                     <h3>🤖 Efti-Bot</h3>
-                    <p>Ultimate AI Assistant with conversational memory, Vision capabilities, and Imagen 3 integration.</p>
-                    <a href="https://web-ai-eftiara.streamlit.app" target="_blank" class="project-link">👉 Launch App</a>
+                    <p>Flagship multi-modal AI assistant featuring contextual conversation memory, advanced computer vision, and high-fidelity text-to-image synthesis powered by Imagen 3.</p>
+                    <a href="https://web-ai-eftiara.streamlit.app" target="_blank" class="project-link">👉 Launch Application</a>
                 </div>
 
                 <div class="project-card">
                     <h3>📊 AI Business Analyzer</h3>
-                    <p>Data extraction tool for customer reviews. Automates sentiment analysis and generates executive strategies.</p>
-                    <a href="https://review-analyzer-eftiara.streamlit.app/" target="_blank" class="project-link">👉 Launch App</a>
+                    <p>Enterprise data intelligence tool designed to parse customer reviews, automatically compute core sentiment distributions, and synthesize data-driven executive recommendations.</p>
+                    <a href="https://review-analyzer-eftiara.streamlit.app/" target="_blank" class="project-link">👉 Launch Application</a>
                 </div>
 
                 <div class="project-card">
-                    <h3>🎵 AI Lyrics Analyzer</h3>
-                    <p>Global music search engine powered by AI and Google Search Grounding for highly accurate lyrics.</p>
-                    <a href="https://lirik-ai-eftiara.streamlit.app" target="_blank" class="project-link">👉 Launch App</a>
+                    <h3>🎵 Global Lyrics Finder</h3>
+                    <p>High-precision global music database retrieval application integrated with real-time Google Search Grounding to eliminate AI hallucination metrics completely.</p>
+                    <a href="https://lirik-ai-eftiara.streamlit.app" target="_blank" class="project-link">👉 Launch Application</a>
                 </div>
 
             </div>
         </section>
 
         <footer>
-            <h2>📬 Let's Work Together</h2>
-            <p>I am currently open to full-time roles, freelance projects, and remote opportunities.</p>
-            <p>💼 <strong>LinkedIn:</strong> <a href="#">Connect with me</a></p>
-            <p>🐙 <strong>GitHub:</strong> <a href="https://github.com/tieftiara-crypto" target="_blank">tieftiara-crypto</a></p>
-            <p>✉️ <strong>Email:</strong> tieftiara@gmail.com</p>
-            <p>📍 <strong>Location:</strong> Purwokerto, Indonesia / Remote</p>
+            <h2>📬 Connect & Collaborate</h2>
+            <p style="margin-bottom: 15px; color: #94a3b8;">Currently open for full-time global engineering positions, technical contract roles, and remote AI pipelines consulting.</p>
+            <p>🐙 <strong>GitHub Profile:</strong> <a href="https://github.com/tieftiara-crypto" target="_blank">github.com/tieftiara-crypto</a></p>
+            <p>💼 <strong>LinkedIn Network:</strong> <a href="#">Connect visually with me</a></p>
+            <p>✉️ <strong>Secure Email Inbox:</strong> tieftiara@email.com</p>
+            <p>📍 <strong>Base Location:</strong> Purwokerto, Indonesia (GMT+7) / Available for USA Remote</p>
         </footer>
 
     </div>
 
     <script>
         // JavaScript: Efek Mengetik Otomatis
-        const texts = ["AI Engineer", "Front-End Developer", "Data Enthusiast", "Problem Solver"];
+        const texts = ["AI Architecture", "Full-Stack AI Engineering", "Front-End System Design", "Data-Driven Engineering"];
         let count = 0;
         let index = 0;
         let currentText = '';
@@ -278,9 +273,9 @@
             if (letter.length === currentText.length) {
                 count++;
                 index = 0;
-                setTimeout(type, 2000);
+                setTimeout(type, 2200); // Jeda tiap kata
             } else {
-                setTimeout(type, 100);
+                setTimeout(type, 80); // Kecepatan ngetik
             }
         }());
     </script>
